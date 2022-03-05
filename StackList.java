@@ -8,7 +8,7 @@ public class StackList<T> extends Stacker<T> {
    
     public StackList() {
         this.InternalSotorage = new ArrayList<T>();
-       
+        
         
     }
     

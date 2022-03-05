@@ -8,7 +8,7 @@ Carné 52527
 Clase Referente a la pila, implementa la interfaz
 */
 
-public abstract class Stacker<E> extends Storage<E> implements Stack<E>{
+public abstract class Stacker<E> extends Storage<E> implements Stack<E>{  
     protected Object InternalSotorage;    
 }
 /*

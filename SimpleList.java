@@ -213,7 +213,7 @@ public class SimpleList<T> extends Storage<T>  implements LinkLists<T>  {
 
 	@Override
 	public boolean IsEmpty() {
-		return count == 0;
+            return count == 0;
 	}
 
 	@Override
@@ -223,3 +223,4 @@ public class SimpleList<T> extends Storage<T>  implements LinkLists<T>  {
 	}
     
 }
+

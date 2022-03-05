@@ -1,22 +1,17 @@
-/*
-Proporcionado por Moises 
-*/
-public class StackSimple<T> extends Stacker<T> {
 
-    public StackSimple() {
-        this.InternalSotorage = new SimpleList();
+public class StackDouble<T> extends Stacker<T> {
+    public StackDouble() {
+        this.InternalSotorage = new DoubleList();
     }
 
     @Override
     public void push(T item) {
-        SimpleList listaInterna =  (SimpleList) InternalSotorage; 
-        listaInterna.InsertAtStart(item);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public T pull() {
-        SimpleList listaInterna =  (SimpleList) InternalSotorage; 
-        return (T) listaInterna.Delete(0);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -36,5 +31,4 @@ public class StackSimple<T> extends Stacker<T> {
         SimpleList listaInterna =  (SimpleList) InternalSotorage; 
         return listaInterna.Count();
     }
-    
 }
