@@ -24,6 +24,8 @@ public class Main {
         StorageFactory fabricS = new StorageFactory();
         Vector<String> info = new Vector<String>();//almacenara la informacion del archivo
         Controladora control = new Controladora();
+        SiCalcu calculator = SiCalcu.getInstance();
+        boolean run = false;
         try {
             System.out.println("Por favor,ingresa la ruta del archivo");
             String archiv = entrada.nextLine();//guarda la ruta del archivo
@@ -37,12 +39,17 @@ public class Main {
                     break;
                 }
                 info.add(x);//agrega al vector info
+                
             }
+         run = true;   
+
 
         } catch (Exception e) {
             System.out.println("Ruta incorrecta");//capta la excepcion
         }
-        //eleccion del tipo de almacenamiento a usar
+        if(run){
+         
+                    //eleccion del tipo de almacenamiento a usar
         System.out.println("Ingrese que clase de implementacion \n de Stack o Lista a Usar ");
         System.out.println("1. Stack");
         System.out.println("2. Listas");
@@ -113,10 +120,12 @@ public class Main {
                 System.out.println(info.get(i));
                 System.out.println("En expresion postfix");
                 String postfix = control.infixToPostfix(info.get(i));
-                
+                System.out.println("Resultado" + DoubleEvaluation(postfix, (DoubleList) store, calculator));
                 
                 
             }
+        
+        }
         
         }
         
@@ -129,9 +138,9 @@ public class Main {
        String[] expresion = operation.split(" ");
         for (int z = 0; z < expresion.length; z++) {//agregar todo a la doublelinked list
             if(z == 0){ 
-                ((DoubleList) data).InsertAtStart(expresion[z]);
+                data.InsertAtStart(expresion[z]);
             } else {
-                ((DoubleList) data).InsertAtEnd(expresion[z]);
+                data.InsertAtEnd(expresion[z]);
             }
         }
         //evaluar expresiones 
@@ -149,11 +158,33 @@ public class Main {
             if (operatorIndex == -1){//en caso de ser estado prohibido
                 System.out.println("Error No hay operadores");
                 return -1;
+            }else{
+            String signo = (String) ((DoubleNode) data.Delete(operatorIndex)).getValue();
+            int operando1 = (int) ((DoubleNode) data.Delete(operatorIndex -1)).getValue();
+            int operando2 = (int) ((DoubleNode) data.Delete(operatorIndex -2)).getValue();
+            result = Operation(signo, operando1, operando2, calculator);
+            data.Insert(result, operatorIndex -2 );
             }
         }
-       
-        
         return result;
+    }
+    
+    private static int Operation(String signo, int a, int b, SiCalcu calculator ){
+        switch(signo){
+            case "+" ->{
+                return calculator.add(a, b);
+            }
+            case "-" ->{
+                return calculator.quit(a, b);
+            }
+            case "*" ->{
+                return calculator.multi(a, b);
+            }
+            case "/" ->{
+                return calculator.div(a, b);
+            }
+        }
+        return 0;
     }
     
 }
