@@ -149,19 +149,19 @@ public class Main {
         while(data.Count() != 1){
             int operatorIndex = -1;//estado prohibido es decir no se hallo un operador
             for (int i = 0; i < data.Count(); i++) {
-                DoubleNode temp = (DoubleNode) data.Get(i);
-                if(temp.getValue().getClass().equals(String.class)){
-                    operatorIndex = i;
+                
+                if(OperatorChecker(String.valueOf(data.Get(i)))){
+                    operatorIndex = i-1;
                     break;
                 }
             }
-            if (operatorIndex == -1){//en caso de ser estado prohibido
+            if (operatorIndex == -1 || operatorIndex <= 1){//en caso de ser estado prohibido
                 System.out.println("Error No hay operadores");
-                return -1;
+                return -1; 
             }else{
-            String signo = (String) ((DoubleNode) data.Delete(operatorIndex)).getValue();
-            int operando1 = (int) ((DoubleNode) data.Delete(operatorIndex -1)).getValue();
-            int operando2 = (int) ((DoubleNode) data.Delete(operatorIndex -2)).getValue();
+            String signo = (String)data.Delete(operatorIndex);
+            int operando1 = Integer.valueOf((String)data.Delete(operatorIndex -1));
+            int operando2 = Integer.valueOf((String)data.Delete(operatorIndex -2));
             result = Operation(signo, operando1, operando2, calculator);
             data.Insert(result, operatorIndex -2 );
             }
@@ -185,6 +185,24 @@ public class Main {
             }
         }
         return 0;
+    }
+    private static boolean OperatorChecker(String a){
+    switch(a){
+            case "+" ->{
+                return true;
+            }
+            case "-" ->{
+                return true;
+            }
+            case "*" ->{
+                return true;
+            }
+            case "/" ->{
+                return true;
+            }
+        }
+        return false;
+    
     }
     
 }
