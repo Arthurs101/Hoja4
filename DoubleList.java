@@ -99,8 +99,37 @@ else
 
 @Override
 public T Delete(int index) {
-        // TODO Auto-generated method stub
-        return null;
+        if (index == 0)
+        {
+            return DeleteAtStart();
+        }
+        else if (index == (Count() - 1))
+        {
+            return DeleteAtEnd();
+        }
+        else if ((index > 0) && (index < (Count() - 1)))
+        {
+            DoubleNode<T> pretemp = start;
+            DoubleNode<T> temp = start.getNext();
+            int i = 1;
+
+            //Search the position where the node will be inserted
+            while ((temp != null) && (i < (Count() - 1)))
+            {
+                pretemp = temp;
+                temp = temp.getNext();
+                i++;
+            }
+
+            //Delete the node
+            pretemp.setNext(temp.getNext());
+            count--;
+            return temp.getValue();
+        }
+        else
+        {
+            return null;
+        }
 }
 
 @Override
@@ -131,7 +160,6 @@ public T DeleteAtStart() {
 
 @Override
 public T DeleteAtEnd() {
-        // TODO Auto-generated method stub
         return null;
 }
 
