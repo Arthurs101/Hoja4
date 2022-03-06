@@ -6,29 +6,31 @@ public class StackDouble<T> extends Stacker<T> {
 
     @Override
     public void push(T item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        DoubleList<T> listaInterna =  (DoubleList) InternalSotorage; 
+        listaInterna.InsertAtStart(item);
     }
 
     @Override
     public T pull() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        DoubleList<T> listaInterna =  (DoubleList) InternalSotorage;  
+        return (T) listaInterna.Delete(0);
     }
 
     @Override
     public T peek() {
-        SimpleList listaInterna =  (SimpleList) InternalSotorage; 
+        DoubleList<T> listaInterna =  (DoubleList) InternalSotorage; 
         return (T) listaInterna.Get(0);
     }
 
     @Override
     public boolean empty() {
-        SimpleList listaInterna =  (SimpleList) InternalSotorage; 
+        DoubleList<T> listaInterna =  (DoubleList) InternalSotorage; 
         return listaInterna.IsEmpty();
     }
 
     @Override
     public int size() {
-        SimpleList listaInterna =  (SimpleList) InternalSotorage; 
+        DoubleList<T> listaInterna =  (DoubleList) InternalSotorage; 
         return listaInterna.Count();
     }
 }
