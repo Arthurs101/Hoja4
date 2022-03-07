@@ -1,3 +1,7 @@
+/*
+ * CLase DoubleLinked List, estas pueden apuntar al siguiente elemento y al elemento anterior
+ */
+
 
 public class DoubleLinkedList<T> implements IList<T> {
 
@@ -5,11 +9,19 @@ public class DoubleLinkedList<T> implements IList<T> {
     private DoubleNode<T> end;
     private int count;
 
+/*
+ * Constructor para doblelinked list
+ */
+
     public DoubleLinkedList() {
         start = null;
         end = null;
         count = 0;
     }
+
+/*
+ * override del  metodo para incertar elemtos al inicio de una lista
+ */
 
     @Override
     public void InsertAtStart(T value) {
@@ -32,6 +44,10 @@ public class DoubleLinkedList<T> implements IList<T> {
 
         count++;
     }
+
+/*
+ * mismo metodo pero inserta al final de la lista
+ */
 
     @Override
     public void InsertAtEnd(T value) {
@@ -56,6 +72,10 @@ public class DoubleLinkedList<T> implements IList<T> {
         count++;
 
     }
+
+/*
+ * Insertar en cualquier punto de la lsita
+ */
 
     @Override
     public void Insert(T value, int index) {
@@ -130,6 +150,11 @@ public class DoubleLinkedList<T> implements IList<T> {
         // TODO Auto-generated method stub
         return null;
     }
+
+
+/*
+ * metodo que encuentra y regresa un elemento "index" en la lista
+ */
 
     @Override
     public T Get(int index) {
