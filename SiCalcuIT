@@ -1,0 +1,41 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
+ */
+package javaapplication27;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+/**
+ *
+ * @author imarg
+ */
+public class SiCalcuIT {
+    
+
+    /**
+     * Test of getInstance method, of class SiCalcu.
+     */
+    @Test
+    public void testGetInstance() {
+        System.out.println("getInstance");
+        SiCalcu calculator = SiCalcu.getInstance();
+        
+        SiCalcu result = SiCalcu.getInstance();
+        assertEquals(calculator, result);
+        
+
+    }
+
+   
+    /**
+     * Test of div method, of class SiCalcu.
+     */
+
+    
+}
