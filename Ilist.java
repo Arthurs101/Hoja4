@@ -1,4 +1,8 @@
+/*
+ * interfaz que sera implementada para todas las listas.
+ */
 
+ 
 public interface IList<T> {
 
     void InsertAtStart(T value);

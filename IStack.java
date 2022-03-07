@@ -1,3 +1,7 @@
+/*
+ * interfaz que sera implementada para todos los stacks.
+ */
+
 
 public interface IStack<T> {
 

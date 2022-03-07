@@ -1,6 +1,14 @@
+/*
+ * Clase Controlador, Aqui se manejan los inputs del usuario
+ */
+
 import java.util.Stack;
 
 public class Controladora {
+
+/*
+ * Metodo que determina el operando de la operacion.
+ */
 
     static int Prec(char ch) {
         switch (ch) {
@@ -17,6 +25,10 @@ public class Controladora {
         }
         return -1;
     }
+
+/*
+ * Aqui se cambia la expresion de infix a posfix.
+ */
 
     static String infixToPostfix(String exp) {
 
